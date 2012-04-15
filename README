@@ -1,0 +1,5 @@
+WAndroid is a simple app for capturing RSSI values from wireless networks
+
+Building:
+
+It is a standard Eclipse project, just import it and go :)
