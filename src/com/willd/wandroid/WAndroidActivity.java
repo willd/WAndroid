@@ -47,7 +47,6 @@ public class WAndroidActivity extends Activity {
         CharSequence contentTitle = "My notification";
         CharSequence contentText = "Hello World!";
         Intent notificationintent = new Intent(this, WAndroidNotification.class);
-        final Intent serviceintent = new Intent(this, WAndroidService.class);
         
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationintent, PendingIntent.FLAG_CANCEL_CURRENT);
         
@@ -73,7 +72,15 @@ public class WAndroidActivity extends Activity {
         });
         start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ) {
-            	startService(serviceintent);
+            	tv.setText(R.string.start_text);
+            	if(start.getText().equals(getText(R.string.start_text)))
+            		start.setText(R.string.stop_text);
+            	else
+            		start.setText(R.string.start_text);
+            	
+
+            	setContentView(R.layout.sec);
+            
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -82,11 +89,8 @@ public class WAndroidActivity extends Activity {
 		        {
 		            File root = new File(Environment.getExternalStorageDirectory(), "WAndroid");
 
-		            if (!root.exists()) {
-		                //root.mkdirs();
+		            if (!root.exists())
 		                root.mkdir();
-
-		            }
 
 		            File gpxfile = new File(root, "WAndroid.txt");
 

@@ -30,12 +30,43 @@
                 android:id="@+id/sec_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView1"
                 android:layout_marginTop="88dp"
                 android:layout_toRightOf="@+id/sec_button"
                 android:text="Large Text"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <EditText
+                android:id="@+id/m_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/m_name"
+                android:layout_alignLeft="@+id/m_name"
+                android:layout_marginBottom="16dp"
+                android:text="Namn på mätning" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView1"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/save_rssi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/m_name"
+                android:layout_alignLeft="@+id/m_name"
+                android:layout_marginTop="23dp"
+                android:text="Save RSSI" />
         </RelativeLayout>
 
     </LinearLayout>

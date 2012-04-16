@@ -32,11 +32,7 @@
        		android:launchMode="singleTask"
         	android:taskAffinity=""
         	android:excludeFromRecents="true">
-		</activity>
-		<service
-		    android:name=".WAndroidService" >
-		    
-		</service>
+	</activity>
     </application>
 
 
