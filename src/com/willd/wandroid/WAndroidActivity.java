@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -57,6 +59,7 @@ public class WAndroidActivity extends Activity {
         notificationintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
+
         
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ) {
@@ -72,8 +75,10 @@ public class WAndroidActivity extends Activity {
         });
         start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ) {
-            	startService(serviceintent);
-            
+            	if(!ServiceStatus()) 
+            		startService(serviceintent);
+            	else
+            		stopService(serviceintent);
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +111,15 @@ public class WAndroidActivity extends Activity {
         });
         
 	
+    }
+    private boolean ServiceStatus() {
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if ("com.willd.wandroid".equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 } 
