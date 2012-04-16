@@ -90,7 +90,6 @@ public class WAndroidActivity extends Activity {
 		            BufferedWriter bW;
 		            
 		            bW = new BufferedWriter(new FileWriter(gpxfile, true));
-		            //bW.write(counter);
 		            bW.append(et.getText());
 		            bW.newLine();
 		            bW.flush();
