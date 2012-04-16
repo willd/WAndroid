@@ -33,7 +33,11 @@
         	android:taskAffinity=""
         	android:excludeFromRecents="true">
 		</activity>
-		<service android:name=".WAndroidService" />
+		<service class=".WAndroidService" />
+			<intent-filter>
+				<action android:value="com.willd.wandroid.WAndroidService.SERVICE" />
+			</intent-filter>
+		</service>
     </application>
 
 

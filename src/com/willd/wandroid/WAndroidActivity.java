@@ -79,6 +79,7 @@ public class WAndroidActivity extends Activity {
             		startService(serviceintent);
             	else
             		stopService(serviceintent);
+            	com.willd.wandroid.WAndroidService.SERVICE
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
