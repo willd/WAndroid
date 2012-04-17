@@ -55,51 +55,7 @@ public class WAndroidNotification extends Activity {
         
         save_rssi.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
-				try
-		        {
-		            File root = new File(Environment.getExternalStorageDirectory(), "WAndroid_Measurments");
-
-		            if (!root.exists())
-		                root.mkdir();
-		            
-		            //Time now = new Time();
-		            //now.setToNow();
-		            
-		            Calendar c = Calendar.getInstance(); 
-		            String seconds = Integer.toString(c.get(Calendar.SECOND));
-		            String minute = Integer.toString(c.get(Calendar.MINUTE));
-		            String hour = Integer.toString(c.get(Calendar.HOUR));
-		            String name2 = null;
-		            //String name = "test-" + seconds +  ".txt";
-		            
-		            
-		            Editable name1 = m_name.getText();
-		            if ((m_name.getText().toString().equals(""))) {
-		            	name2 =hour+"."+minute+"."+seconds+".txt";
-		            }
-		            else {
-		               	name2 =name1+".txt";
-		            }
-		            
-		            File gpxfile = new File(root, name2);
-
-		            BufferedWriter bW;
-		            
-		            bW = new BufferedWriter(new FileWriter(gpxfile, true));
-		            bW.append(sec_tv.getText());
-		            //bW.append(hour);
-		            //bW.append(minute);
-		            //bW.append(seconds);
-		            bW.newLine();
-		            bW.flush();
-		            bW.close();
-		            
-		        }
-		        catch(IOException e)
-		        {
-		             e.printStackTrace();
-		        }
-		        
+				WritetoFile(m_name, sec_tv);
 				
 			}
         });
@@ -119,6 +75,46 @@ public class WAndroidNotification extends Activity {
    		  RSSIlist.add(newRssi);
    		  sec_tv2.setText(String.valueOf(newRssi) );
    		 }};
+   	private void WritetoFile(EditText m_name, TextView sec_tv) {
+   		try {
+            File root = new File(Environment.getExternalStorageDirectory(), "WAndroid_Measurements");
 
+            if (!root.exists())
+                root.mkdir();
+            
+            Calendar c = Calendar.getInstance(); 
+            String seconds = Integer.toString(c.get(Calendar.SECOND));
+            String minute = Integer.toString(c.get(Calendar.MINUTE));
+            String hour = Integer.toString(c.get(Calendar.HOUR));
+            String name2 = null;
 
-}
+            
+            Editable name1 = m_name.getText();
+            if ((m_name.getText().toString().equals(""))) {
+            	name2 =hour+"."+minute+"."+seconds+".txt";
+            }
+            else {
+               	name2 =name1+".txt";
+            }
+            
+            File gpxfile = new File(root, name2);
+
+            BufferedWriter bW;
+            
+            bW = new BufferedWriter(new FileWriter(gpxfile, true));
+            bW.append(sec_tv.getText());
+            //bW.append(hour);
+            //bW.append(minute);
+            //bW.append(seconds);
+            bW.newLine();
+            bW.flush();
+            bW.close();
+            
+        }
+        catch(IOException e) {
+             e.printStackTrace();
+        }
+        
+   	}
+
+}	

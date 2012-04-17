@@ -16,7 +16,7 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/wireless_icon"
         android:label="@string/app_name" >
         <activity
             android:name=".WAndroidActivity"
@@ -33,9 +33,9 @@
         	android:taskAffinity=""
         	android:excludeFromRecents="true">
 		</activity>
-		<service class=".WAndroidService" />
+		<service android:name=".WAndroidService" >
 			<intent-filter>
-				<action android:value="com.willd.wandroid.WAndroidService.SERVICE" />
+				<action android:name="com.willd.wandroid.WAndroidService.SERVICE" />
 			</intent-filter>
 		</service>
     </application>
