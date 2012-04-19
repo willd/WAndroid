@@ -28,4 +28,33 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rooted only" />
+
+    <Button
+        android:id="@+id/increment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Increment counter" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset counter" />
+	
+    <EditText
+        android:id="@+id/valuecount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" 
+        android:text="10" >
+		
+		<requestFocus />
+                </EditText>
+
 </LinearLayout>
