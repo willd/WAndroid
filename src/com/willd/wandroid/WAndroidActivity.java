@@ -64,14 +64,7 @@ public class WAndroidActivity extends Activity {
 
         
         int icon = R.drawable.wireless_icon;
-        /*
-    	try {
-			rootprocess = getRoot();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}*/
+
         start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v ) {
             	if(recieverflag == false) {
@@ -175,7 +168,7 @@ public class WAndroidActivity extends Activity {
 	        	default_name =hour+"."+minute+"."+seconds+".txt";
 	        }
 	        else {
-	        	default_name =edit_name+".txt";
+	        	default_name = edit_name+".txt";
 	        }
 		return default_name;
     	
@@ -188,17 +181,15 @@ public class WAndroidActivity extends Activity {
                 root.mkdir();
             
             
-            File gpxfile = new File(root, filename);
+            File MeasurementFile = new File(root, filename);
             
             BufferedWriter bW;
             
-            bW = new BufferedWriter(new FileWriter(gpxfile, true));
+            bW = new BufferedWriter(new FileWriter(MeasurementFile, true));
             if(list == null) {
-            	
-            
-            bW.append((RSSIlist.get(RSSIlist.size()-1)));
-            bW.newLine();
-            }
+	            bW.append((RSSIlist.get(RSSIlist.size()-1)));
+	            bW.newLine();
+	            }
             else {
             	for(int x=0;x <= RSSIlist.size()-1; x++) {
             		bW.append(RSSIlist.get(x));
